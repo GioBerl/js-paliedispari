@@ -1,7 +1,9 @@
 // scrivere una funzione per capire se una parola è palindroma. Quindi chiedere una parola all'utente, utilizzare la funzione per sapere se la parola inserita è palindroma e stampare un messaggio appropriato
 
 //chiedo parola all'utente
-var parola = prompt(`inserisci una parola per vedere se e' palindroma`);
+var parola = prompt(
+    `inserisci una parola o una frase per verificare se e' palindroma`
+);
 
 //voglio stabilire se e' una parola o una frase
 var isWord = false;
@@ -9,10 +11,8 @@ var isPhrase = false;
 var parolaOfrase = parola.split(" ");
 if (parolaOfrase.length == 1) {
     var isWord = true;
-    console.log(`e' una parola`);
 } else {
     var isPhrase = true;
-    console.log(`e' una frase`);
 }
 
 // utilizzo la funzione isPalidroma (parametrizzando la parola dell'utente) per sapere se la parola inserita è palindroma e stampo un messaggio appropriato
