@@ -5,22 +5,28 @@ var parola = prompt(`inserisci una parola per vedere se e' palindroma`);
 
 // utilizzo la funzione isPalidroma (parametrizzando la parola dell'utente) per sapere se la parola inserita è palindroma e stampo un messaggio appropriato
 if (isPalindroma(parola) == true) {
-    console.log(`la parola ${parola} e' palindroma`);
+    console.log(`la parola (o frase) ${parola} e' palindroma`);
 } else {
-    console.log(`la parola "${parola}" non e' palindroma`);
+    console.log(`la parola (o frase) "${parola}" non e' palindroma`);
 }
 
 function isPalindroma(stringa) {
     var stringaLower = stringa.toLowerCase();
     // HeLlo ---> hello
-    var arrayStringa = stringaLower.split("");
+
+    var punctuationLess = stringaLower.replace(/[^\w\s]|_/g, "");
+    // hello!@#$? ---> hello
+
+    var arrayStringa = punctuationLess.split("");
     // hello --->  [h,e,l,l,o]
+
     var arrayReversed = arrayStringa.reverse();
     // [h,e,l,l,o] ---> [o,l,l,e,h]
+
     var stringaReversed = arrayReversed.join("");
     // [o,l,l,e,h] ---> olleh
 
-    if (stringaLower === stringaReversed) {
+    if (punctuationLess === stringaReversed) {
         return true;
     } else {
         return false;
