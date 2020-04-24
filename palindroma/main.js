@@ -11,14 +11,16 @@ if (isPalindroma(parola) == true) {
 }
 
 function isPalindroma(stringa) {
-    var arrayStringa = stringa.split("");
+    var stringaLower = stringa.toLowerCase();
+    // HeLlo ---> hello
+    var arrayStringa = stringaLower.split("");
     // hello --->  [h,e,l,l,o]
     var arrayReversed = arrayStringa.reverse();
     // [h,e,l,l,o] ---> [o,l,l,e,h]
     var stringaReversed = arrayReversed.join("");
     // [o,l,l,e,h] ---> olleh
 
-    if (stringa === stringaReversed) {
+    if (stringaLower === stringaReversed) {
         return true;
     } else {
         return false;
