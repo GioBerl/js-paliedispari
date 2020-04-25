@@ -4,12 +4,15 @@
 var numero = parseInt(prompt("inserisci un numero tra 1 e 5"));
 
 // generare un numero random tra 1 e 5
-var numeroRandom = Math.floor(Math.random() * 5) + 1;
+// var numeroRandom = Math.floor(Math.random() * 5) + 1;
+
+// ! se volessi generare un numero random fra due numeri casuali (inclusi)
+var numeroRandom = generaRandom(1, 5);
 
 // Chiedere all'utente se sceglie pari o dispari
 var scelta = prompt("pari o dispari?");
 
-// fare la somma dei due numeri (e stamparla)
+// fare la somma dei due numeri
 var somma = numero + numeroRandom;
 
 // voglio vedere il numero dell'utente e quello del computer, la loro somma e la scelta dell'utente
@@ -25,6 +28,7 @@ if (isPari(somma) == scelta) {
     console.log("mi dispiace hai perso");
 }
 
+// FUNZIONI
 // definisco una funzione per stabilire numeri pari e dispari
 function isPari(num) {
     if (num % 2 == 0) {
@@ -32,4 +36,9 @@ function isPari(num) {
     } else {
         return "dispari";
     }
+}
+
+// definisco una funzione per generare un numero random tra due intervalli (inclusi)
+function generaRandom(num1, num2) {
+    return Math.floor(Math.random() * (num2 - num1 + 1) + num1);
 }
