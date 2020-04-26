@@ -34,7 +34,12 @@ function isPalindroma(stringa) {
     var stringaLower = stringa.toLowerCase();
     // HeLlo ---> hello
 
-    var punctuationLess = stringaLower.replace(/[^\w\s]|_/g, "");
+    var stringaNormalizzata = stringaLower
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    //pietà ---> pieta
+
+    var punctuationLess = stringaNormalizzata.replace(/[^\w\s]|_/g, "");
     // Detailed explanation:
     // \w is any digit, letter, or underscore.
     // \s is any whitespace.
